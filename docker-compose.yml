@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres:16
+    container_name: opsdesk-db
+    restart: always
+    environment:
+      POSTGRES_USER: opsdesk
+      POSTGRES_PASSWORD: opsdesk123
+      POSTGRES_DB: opsdesk_dev
+    ports:
+      - "5432:5432"
+    volumes:
+      - opsdesk_postgres_data:/var/lib/postgresql/data
+
+volumes:
+  opsdesk_postgres_data:
